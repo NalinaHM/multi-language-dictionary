@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polyglot Dictionary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-text">
+        <h1>multi-language Dictionary</h1>
+        <p>Multi-language companion for words, meanings, and pronunciation.</p>
+      </div>
+      <div class="mode-toggle" title="Toggle dark mode">
+        <input type="checkbox" id="modeSwitch" />
+        <label for="modeSwitch">Dark mode</label>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-panel">
+        <div class="input-group">
+          <label for="searchInput">Search term</label>
+          <div class="search-row">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Type a word (e.g., explore, नमस्ते, hola)"
+              autocomplete="off"
+            />
+            <button id="searchButton">Search</button>
+          </div>
+        </div>
+
+        <div class="selectors">
+          <div class="input-group">
+            <label for="sourceLanguage">Source language</label>
+            <select id="sourceLanguage">
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="kn">Kannada</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="zh">Chinese (Simplified)</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="targetLanguage">Target language</label>
+            <select id="targetLanguage">
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="kn">Kannada</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="zh">Chinese (Simplified)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="status" id="statusMessage" aria-live="polite"></section>
+
+      <section class="results" id="resultsPanel">
+        <div class="word-head">
+          <div>
+            <h2 id="resultWord">Start exploring</h2>
+            <p id="resultPhonetic" class="phonetic"></p>
+            <p id="resultTranslation" class="translation"></p>
+          </div>
+          <div class="word-actions">
+            <button id="audioButton" class="ghost-btn" disabled>Play audio</button>
+            <button id="favoriteButton" class="ghost-btn" disabled>Add to favorites</button>
+          </div>
+        </div>
+
+        <div id="definitionsContainer" class="definitions"></div>
+      </section>
+
+      <section class="favorites-panel">
+        <div class="panel-header">
+          <h3>Favorites</h3>
+          <button id="clearFavorites" class="ghost-btn small">Clear</button>
+        </div>
+        <ul id="favoritesList"></ul>
+      </section>
+    </main>
+
+    <footer>
+      Data sources: Free Dictionary API &amp; MyMemory Translation API.
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
+
